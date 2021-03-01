@@ -1,12 +1,12 @@
 <?php  include('template/header.php'); ?>
 <?php  include('database.php'); ?>
-<?php $inventorys = pg_querynn, "SELECT * FROM inventory"); ?>
+<?php $inventorys = pg_query($conn, "SELECT * FROM inventory"); ?>
 <?php
     
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         try {
-            pg_querynn, "DELETE FROM inventory WHERE InventoryID = $id");
+            pg_query($conn, "DELETE FROM inventory WHERE InventoryID = $id");
             echo '<script>window.location.href = "inventory.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();
