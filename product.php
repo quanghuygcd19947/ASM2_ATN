@@ -41,7 +41,7 @@
                                     </thead>
                                     
                                     <tbody>
-                                    <?php while ($row = pg_fetch_row($products)) { ?>
+                                    <?php while ($row = pg_fetch_assoc($products)) { ?>
                                         <tr>
                                             <td><?php echo $row['ProductID']; ?></td>
                                             <td><?php echo $row['Name']; ?></td>
