@@ -1,12 +1,12 @@
 <?php  include('template/header.php'); ?>
 <?php  include('database.php'); ?>
-<?php $orders = pg_query($conn, "SELECT * FROM orderproduct"); ?>
+<?php $orders = pg_connect($conn, "SELECT * FROM orderproduct"); ?>
 <?php
     
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         try {
-            pg_query($conn, "DELETE FROM orderproduct WHERE OrderID = $id");
+            pg_connect($conn, "DELETE FROM orderproduct WHERE OrderID = $id");
             echo '<script>window.location.href = "order.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();
@@ -47,7 +47,7 @@
                         <td><?php echo $row['BillID']; ?></td>
                         <td><?php echo $row['Qty']; ?></td>
                         <td>
-                            
+
                             <a href="order.php?del=<?php echo $row['OrderID']; ?>" class="btn btn-danger active">Delete</a>
                         </td>
                     </tr>

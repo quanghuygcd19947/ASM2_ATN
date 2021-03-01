@@ -11,7 +11,7 @@
 		$password = $_POST['password'];
 		$price = $_POST['price'];
         try {
-            $employee = pg_query($conn, "SELECT * FROM employee WHERE Email = '$email' AND Password = '$password'");
+            $employee = pg_connect($conn, "SELECT * FROM employee WHERE Email = '$email' AND Password = '$password'");
             $rowcount = pg_num_rows($employee);
             if($rowcount == 0) {
                 echo 'Email or Password are incorrect !';
