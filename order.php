@@ -1,12 +1,12 @@
 <?php  include('template/header.php'); ?>
 <?php  include('database.php'); ?>
-<?php $orders = pg_connect($conn, "SELECT * FROM orderproduct"); ?>
+<?php $orders = pg_query($conn, "SELECT * FROM orderproduct"); ?>
 <?php
     
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         try {
-            pg_connect($conn, "DELETE FROM orderproduct WHERE OrderID = $id");
+            pg_query($conn, "DELETE FROM orderproduct WHERE OrderID = $id");
             echo '<script>window.location.href = "order.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();

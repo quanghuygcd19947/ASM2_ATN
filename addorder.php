@@ -11,7 +11,7 @@
         $quantity = $_POST['Qty'];
         try {
             $query = "INSERT INTO orderproduct (OrderID, BillID, Qty) VALUES ('$order', '$bill', '$quantity')";
-            $orderproduct = pg_connect($conn, $query);
+            $orderproduct = pg_query($conn, $query);
             if(!$orderproduct) {
                 echo 'Something went wrong, please try again';
             }
@@ -45,7 +45,7 @@
                             <option >Select Product</option>
                             <?php
                                 $sqlie = "select * from product";
-                                $results = pg_connect($conn,$sqlie);
+                                $results = pg_query($conn,$sqlie);
                                 while ($rows = pg_fetch_row($results)){
                                     echo "<option value=".$rows['ProductID']." >".$rows['Name']."</option>";
                                 }
@@ -59,7 +59,7 @@
                             <option >Select Bill</option>
                             <?php
                                 $sqlie = "select * from bill";
-                                $results = pg_connect($conn,$sqlie);
+                                $results = pg_query($conn,$sqlie);
                                 while ($rows = pg_fetch_row($results)){
                                     echo "<option value=".$rows['BilID']." >".$rows['Date']."</option>";
                                 }

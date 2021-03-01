@@ -4,7 +4,7 @@
 <?php
     if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
-		$record = pg_connect($conn, "SELECT * FROM inventory WHERE Inventory=$id");
+		$record = pg_query($conn, "SELECT * FROM inventory WHERE Inventory=$id");
 
 		if ($record) {
 			$inventory = pg_fetch_row($record);
@@ -20,7 +20,7 @@
         $updatedQuantity2 = $_POST['Qty'];
         $updatedProduct = $_POST['ProductID'];
     
-        pg_connect($conn, "UPDATE inventory SET OfficeID='$updatedOffice', Qty='$updatedQuantity2', ProductID='$updatedProduct = $_POST['ProductID'];
+        pg_query($conn, "UPDATE inventory SET OfficeID='$updatedOffice', Qty='$updatedQuantity2', ProductID='$updatedProduct = $_POST['ProductID'];
         ' WHERE InventoryID=$id");
         // $_SESSION['message'] = "Address updated!"; 
         echo '<script>window.location.href = "inventory.php";</script>';
@@ -47,7 +47,7 @@
                                     <option >Select Office</option>
                                     <?php
                                         $sqlie = "select * from office";
-                                        $results = pg_connect($conn,$sqlie);
+                                        $results = pg_query($conn,$sqlie);
                                         while ($rows = pg_fetch_row($results)){
                                             echo "<option value=".$rows['OfficeID']." >".$rows['City']."</option>";
                                         }
@@ -62,7 +62,7 @@
                                     <option>Select Product</option>
                                     <?php
                                     $sqli = "select * from product";
-                                    $result = pg_connect($conn,$sqli);
+                                    $result = pg_query($conn,$sqli);
                                     while ($row = pg_fetch_row($result)){
                                         echo "<option value=".$row['ProductID']." >".$row['Name']."</option>";
                                     }
