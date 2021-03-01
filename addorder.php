@@ -6,16 +6,21 @@
 	$quantity = "";
 
 	if (isset($_POST['save'])) {
-		$product = $_POST['oroductID'];
-		$bill = $_POST['billID'];
+		$order = $_POST['OrderID'];
+		$bill = $_POST['BillID'];
         $quantity = $_POST['Qty'];
         try {
-            pg_query($conn, "INSERT INTO product (ProductID, BillID, Qty) VALUES ('$product', '$bill', '$quantity')"); 
-		    echo '<script>window.location.href = "order.php";</script>';
+            $query = "INSERT INTO orderproduct (OrderID, BillID, Qty) VALUES ('$order', '$bill', '$quantity')";
+            $orderproduct = pg_query($conn, $query);
+            if(!$orderproduct) {
+                echo 'Something went wrong, please try again';
+            }
+            echo '<script>window.location.href = "order.php";</script>';
             exit();
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();
         }
+		
 		
 	}
 	
@@ -36,28 +41,28 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">ProductID</label>
                             <br>
-                            <select>
-                            <option>--select--</option>
+                            <select name='ProductID'>
+                            <option >Select Prpduct</option>
                             <?php
-                            $sqlie = "select * from product";
-                            $results = pg_query($conn,$sqlie);
-                            while ($rows = pg_fetch_row($results)){
-                                echo '<option>'.$rows['ProductID'].'</option>';
-                            }
+                                $sqlie = "select * from office";
+                                $results = pg_query($conn,$sqlie);
+                                while ($rows = pg_fetch_row($results)){
+                                    echo "<option value=".$rows['ProductID']." >".$rows['Name']."</option>";
+                                }
                             ?>
                             </select>
                             </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">BillID</label>
                             <br>
-                            <select>
-                            <option>--select--</option>
+                            <select name='BillID'>
+                            <option >Select Bill</option>
                             <?php
-                            $sqli = "select * from bill";
-                            $result = pg_query($conn,$sqli);
-                            while ($row = pg_fetch_row($result)){
-                                echo '<option>'.$row['BillID'].'</option>';
-                            }
+                                $sqlie = "select * from office";
+                                $results = pg_query($conn,$sqlie);
+                                while ($rows = pg_fetch_row($results)){
+                                    echo "<option value=".$rows['BilID']." >".$rows['Date']."</option>";
+                                }
                             ?>
                             </select>
 

@@ -47,7 +47,7 @@
                         <td><?php echo $row['BillID']; ?></td>
                         <td><?php echo $row['Qty']; ?></td>
                         <td>
-                            <a href="addorder.php?edit=<?php echo $row['OrderID']; ?>" class="btn btn-primary active" >Edit</a>
+                            
                             <a href="order.php?del=<?php echo $row['OrderID']; ?>" class="btn btn-danger active">Delete</a>
                         </td>
                     </tr>

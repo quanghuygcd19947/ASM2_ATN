@@ -17,10 +17,10 @@
 <?php 
     if (isset($_POST['update'])) {
         $updatedOffice = $_POST['OfficeID'];
-        $updatedQuantity2 = $_POST['qty'];
-        $updatedProduct = $_POST['productID'];
+        $updatedQuantity2 = $_POST['Qty'];
+        $updatedProduct = $_POST['ProductID'];
     
-        pg_query($conn, "UPDATE inventory SET OfficeID='$updatedOffice', Qty='$updatedQuantity2', ProductID='$updatedProduct = $_POST['productID'];
+        pg_query($conn, "UPDATE inventory SET OfficeID='$updatedOffice', Qty='$updatedQuantity2', ProductID='$updatedProduct = $_POST['ProductID'];
         ' WHERE InventoryID=$id");
         // $_SESSION['message'] = "Address updated!"; 
         echo '<script>window.location.href = "inventory.php";</script>';
@@ -42,17 +42,37 @@
                         <div class="card-body">
                             <form method="post" action="">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Office ID</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Enter name" name="name" value="<?php echo $name; ?>">
+                                    <label for="exampleInputEmail1">Office</label>
+                                    <select name='OfficeID'>
+                                    <option >Select Office</option>
+                                    <?php
+                                        $sqlie = "select * from office";
+                                        $results = pg_query($conn,$sqlie);
+                                        while ($rows = pg_fetch_row($results)){
+                                            echo "<option value=".$rows['OfficeID']." >".$rows['City']."</option>";
+                                        }
+                                    ?>
+                                    </select>
                                     
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Quantity</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quanity" name="qtyInStock" value="<?php echo $quantity; ?>">
-                                </div>
+                                    <label for="exampleInputPassword1">ProductID</label>
+                                    <br>
+                                    <select name='ProductID'>
+                                    <option>Select Product</option>
+                                    <?php
+                                    $sqli = "select * from product";
+                                    $result = pg_query($conn,$sqli);
+                                    while ($row = pg_fetch_row($result)){
+                                        echo "<option value=".$row['ProductID']." >".$row['Name']."</option>";
+                                    }
+                                    ?>
+                                    </select>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">P</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter price" name="price" value="<?php echo $price; ?>">
+                                    <label for="exampleInputPassword1">Quantity</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quanity" name="Qty" value="<?php echo $quantity; ?>">
+                                </div>
+
                                 </div>
                                 
                                 <button type="submit" class="btn btn-primary" name="update">Submit</button>
