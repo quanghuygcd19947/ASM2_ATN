@@ -41,7 +41,7 @@
                                     </thead>
                                     
                                     <tbody>
-                                    <?php while ($row = pg_fetch_assoc($products)) { ?>
+                                    <?php while ($row = pg_fetch_row($products)) { ?>
                                         <tr>
                                             <td><?php echo $row['ProductID']; ?></td>
                                             <td><?php echo $row['Name']; ?></td>
@@ -52,7 +52,7 @@
                                                 <a href="product.php?del=<?php echo $row['ProductID']; ?>" class="btn btn-danger active">Delete</a>
                                             </td>
                                         </tr>
-                                    <?php } ?>
+                                    <?php } pg_free_result($result); ?>
                                     </tbody>
                                 </table>
                             </div>
