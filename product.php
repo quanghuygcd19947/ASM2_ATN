@@ -52,7 +52,7 @@
                                                 <a href="product.php?del=<?php echo $row['ProductID']; ?>" class="btn btn-danger active">Delete</a>
                                             </td>
                                         </tr>
-                                    <?php } pg_free_result($result); ?>
+                                    <?php } pg_free_result($products); ?>
                                     </tbody>
                                 </table>
                             </div>
