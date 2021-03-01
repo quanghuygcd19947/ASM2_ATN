@@ -42,9 +42,9 @@
                             <label for="exampleInputEmail1">ProductID</label>
                             <br>
                             <select name='ProductID'>
-                            <option >Select Prpduct</option>
+                            <option >Select Product</option>
                             <?php
-                                $sqlie = "select * from office";
+                                $sqlie = "select * from product";
                                 $results = pg_query($conn,$sqlie);
                                 while ($rows = pg_fetch_row($results)){
                                     echo "<option value=".$rows['ProductID']." >".$rows['Name']."</option>";
@@ -58,7 +58,7 @@
                             <select name='BillID'>
                             <option >Select Bill</option>
                             <?php
-                                $sqlie = "select * from office";
+                                $sqlie = "select * from bill";
                                 $results = pg_query($conn,$sqlie);
                                 while ($rows = pg_fetch_row($results)){
                                     echo "<option value=".$rows['BilID']." >".$rows['Date']."</option>";
