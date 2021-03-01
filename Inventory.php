@@ -41,7 +41,7 @@
                                     </thead>
                                     
                                     <tbody>
-                                    <?php while ($row = pg_fetch_rowntorys)) { ?>
+                                    <?php while ($row = pg_fetch_row($inventorys)) { ?>
                                         <tr>
                                             <td><?php echo $row['InventoryID']; ?></td>
                                             <td><?php echo $row['OfficeID']; ?></td>
