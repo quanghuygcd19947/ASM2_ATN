@@ -11,7 +11,7 @@
         $product = $_POST['ProductID'];
         try {
             $query = "INSERT INTO inventory (OfficeID, Qty, ProductID) VALUES ('$office', '$quantity', '$product')";
-            $inventory = mysqli_query($conn, $query);
+            $inventory = pg_query($conn, $query);
             if(!$inventory) {
                 echo 'Something went wrong, please try again';
             }
@@ -44,8 +44,8 @@
                             <option >Select Office</option>
                             <?php
                                 $sqlie = "select * from office";
-                                $results = mysqli_query($conn,$sqlie);
-                                while ($rows = mysqli_fetch_array($results)){
+                                $results = pg_query($conn,$sqlie);
+                                while ($rows = pg_fetch_row($results)){
                                     echo "<option value=".$rows['OfficeID']." >".$rows['City']."</option>";
                                 }
                             ?>
@@ -63,8 +63,8 @@
                             <option>Select Product</option>
                             <?php
                             $sqli = "select * from product";
-                            $result = mysqli_query($conn,$sqli);
-                            while ($row = mysqli_fetch_array($result)){
+                            $result = pg_query($conn,$sqli);
+                            while ($row = pg_fetch_row($result)){
                                 echo "<option value=".$row['ProductID']." >".$row['Name']."</option>";
                             }
                             ?>

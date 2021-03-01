@@ -4,10 +4,10 @@
 <?php
     if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
-		$record = mysqli_query($conn, "SELECT * FROM inventory WHERE Inventory=$id");
+		$record = pg_query($conn, "SELECT * FROM inventory WHERE Inventory=$id");
 
 		if ($record) {
-			$inventory = mysqli_fetch_array($record);
+			$inventory = pg_fetch_row($record);
 			$office = $product['OfficeID'];
 			$quantity = $product['Qty'];
             $product = $product['ProductID'];
@@ -20,7 +20,7 @@
         $updatedQuantity2 = $_POST['qty'];
         $updatedProduct = $_POST['productID'];
     
-        mysqli_query($conn, "UPDATE inventory SET OfficeID='$updatedOffice', Qty='$updatedQuantity2', ProductID='$updatedProduct = $_POST['productID'];
+        pg_query($conn, "UPDATE inventory SET OfficeID='$updatedOffice', Qty='$updatedQuantity2', ProductID='$updatedProduct = $_POST['productID'];
         ' WHERE InventoryID=$id");
         // $_SESSION['message'] = "Address updated!"; 
         echo '<script>window.location.href = "inventory.php";</script>';

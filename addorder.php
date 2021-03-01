@@ -10,7 +10,7 @@
 		$bill = $_POST['billID'];
         $quantity = $_POST['Qty'];
         try {
-            mysqli_query($conn, "INSERT INTO product (ProductID, BillID, Qty) VALUES ('$product', '$bill', '$quantity')"); 
+            pg_query($conn, "INSERT INTO product (ProductID, BillID, Qty) VALUES ('$product', '$bill', '$quantity')"); 
 		    echo '<script>window.location.href = "order.php";</script>';
             exit();
         } catch (Exception $e) {
@@ -40,8 +40,8 @@
                             <option>--select--</option>
                             <?php
                             $sqlie = "select * from product";
-                            $results = mysqli_query($conn,$sqlie);
-                            while ($rows = mysqli_fetch_array($results)){
+                            $results = pg_query($conn,$sqlie);
+                            while ($rows = pg_fetch_row($results)){
                                 echo '<option>'.$rows['ProductID'].'</option>';
                             }
                             ?>
@@ -54,8 +54,8 @@
                             <option>--select--</option>
                             <?php
                             $sqli = "select * from bill";
-                            $result = mysqli_query($conn,$sqli);
-                            while ($row = mysqli_fetch_array($result)){
+                            $result = pg_query($conn,$sqli);
+                            while ($row = pg_fetch_row($result)){
                                 echo '<option>'.$row['BillID'].'</option>';
                             }
                             ?>

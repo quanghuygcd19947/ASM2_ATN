@@ -11,8 +11,8 @@
 		$password = $_POST['password'];
 		$price = $_POST['price'];
         try {
-            $employee = mysqli_query($conn, "SELECT * FROM employee WHERE Email = '$email' AND Password = '$password'");
-            $rowcount = mysqli_num_rows($employee);
+            $employee = pg_query($conn, "SELECT * FROM employee WHERE Email = '$email' AND Password = '$password'");
+            $rowcount = pg_num_rows($employee);
             if($rowcount == 0) {
                 echo 'Email or Password are incorrect !';
                 echo '<script>window.location.href = "login.php";</script>';               

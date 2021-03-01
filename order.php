@@ -1,12 +1,12 @@
 <?php  include('template/header.php'); ?>
 <?php  include('database.php'); ?>
-<?php $orders = mysqli_query($conn, "SELECT * FROM orderproduct"); ?>
+<?php $orders = pg_query($conn, "SELECT * FROM orderproduct"); ?>
 <?php
     
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         try {
-            mysqli_query($conn, "DELETE FROM orderproduct WHERE OrderID = $id");
+            pg_query($conn, "DELETE FROM orderproduct WHERE OrderID = $id");
             echo '<script>window.location.href = "order.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();
@@ -40,7 +40,7 @@
                 </thead>
                 
                 <tbody>
-                <?php while ($row = mysqli_fetch_array($orders)) { ?>
+                <?php while ($row = pg_fetch_row($orders)) { ?>
                     <tr>
                         <td><?php echo $row['OrderID']; ?></td>
                         <td><?php echo $row['ProductID']; ?></td>

@@ -1,12 +1,12 @@
 <?php  include('template/header.php'); ?>
 <?php  include('database.php'); ?>
-<?php $inventorys = mysqli_query($conn, "SELECT * FROM inventory"); ?>
+<?php $inventorys = pg_querynn, "SELECT * FROM inventory"); ?>
 <?php
     
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         try {
-            mysqli_query($conn, "DELETE FROM inventory WHERE InventoryID = $id");
+            pg_querynn, "DELETE FROM inventory WHERE InventoryID = $id");
             echo '<script>window.location.href = "inventory.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();
@@ -41,7 +41,7 @@
                                     </thead>
                                     
                                     <tbody>
-                                    <?php while ($row = mysqli_fetch_array($inventorys)) { ?>
+                                    <?php while ($row = pg_fetch_rowntorys)) { ?>
                                         <tr>
                                             <td><?php echo $row['InventoryID']; ?></td>
                                             <td><?php echo $row['OfficeID']; ?></td>
