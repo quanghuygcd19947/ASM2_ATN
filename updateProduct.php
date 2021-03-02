@@ -8,9 +8,9 @@
 
 		if ($record) {
 			$product = pg_fetch_row($record);
-			$name = $product['name'];
-			$quantity = $product['qtyinstock'];
-            $price = $product['price'];
+			$name = $product['2'];
+			$quantity = $product['1'];
+            $price = $product['3'];
 		}
 	}
 ?>
