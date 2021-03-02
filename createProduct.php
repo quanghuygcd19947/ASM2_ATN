@@ -11,13 +11,16 @@
 		$name = $_POST['name'];
 		$quantity = $_POST['qtyInStock'];
 		$price = $_POST['price'];
-        try {
-            pg_query($conn, "INSERT INTO product (Name, QtyInStock, Price) VALUES ('$name', '$quantity', '$price')"); 
-		    echo '<script>window.location.href = "product.php";</script>';
+
+        $query = pg_query($conn, "INSERT INTO product (Name, QtyInStock, Price) VALUES ('$name', '$quantity', '$price')"); 
+		if ( $query){
+            echo '<script>window.location.href = "product.php";</script>';
             exit();
-        } catch (Exception $e) {
-            echo 'Message: ' .$e->getMessage();
+
         }
+        // } catch (Exception $e) {
+        //     echo 'Message: ' .$e->getMessage();
+        // }
 		
 	}
 ?>
