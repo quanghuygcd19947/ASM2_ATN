@@ -37,8 +37,8 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Name</th>
                                             <th>Quantity in Stock</th>
+                                            <th>Name</th>
                                             <th>Price</th>
                                             <th>More</th>
                                             
