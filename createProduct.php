@@ -9,10 +9,10 @@
 	if (isset($_POST['save'])) {
         //header("Location: http://localhost/ASM2-Cloud/product.php"); 
 		$name = $_POST['name'];
-		$quantity = $_POST['qtyInStock'];
+		$quantity = $_POST['qtyinstock'];
 		$price = $_POST['price'];
         try {
-            pg_query($conn, "INSERT INTO product (productid, name, qtyinstock, price) VALUES ( '$name', '$quantity', '$price')"); 
+            pg_query($conn, "INSERT INTO product ( name, qtyinstock, price) VALUES ( '$name', '$quantity', '$price')"); 
 		    echo '<script>window.location.href = "product.php";</script>';
             exit();
         } catch (Exception $e) {
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Quantity in stock</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quanity" name="qtyInStock">
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quanity" name="qtyinstock">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Price</label>
