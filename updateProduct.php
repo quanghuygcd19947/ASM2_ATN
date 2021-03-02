@@ -4,7 +4,7 @@
 <?php
     if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
-		$record = pg_query($conn, "SELECT * FROM product WHERE ProductID=$id");
+		$record = pg_query($conn, "SELECT * FROM product WHERE productid=$id");
 
 		if ($record) {
 			$product = pg_fetch_row($record);
@@ -18,7 +18,7 @@
 <?php 
     if (isset($_POST['update'])) {
         $updatedName = $_POST['name'];
-        $updatedQuantity = $_POST['qtyInStock'];
+        $updatedQuantity = $_POST['qtyinstock'];
         $updatedPrice = $_POST['price'];
     
         pg_query($conn, "UPDATE product SET name='$updatedName', qtyinstock='$updatedQuantity', price='$updatedPrice' WHERE productID=$id");
