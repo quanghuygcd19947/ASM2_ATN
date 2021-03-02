@@ -1,12 +1,17 @@
 <?php  include('template/header.php'); ?>
 <?php  include('database.php'); ?>
-<?php $products = pg_query($conn, "SELECT * FROM product"); ?>
+<?php 
+    $products = pg_query($conn, "SELECT * FROM product");
+    // $row = pg_fetch_row($products);
+    // var_dump($row);
+    // die()
+    ?>
 <?php
     
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         try {
-            pg_query($conn, "DELETE FROM product WHERE ProductID = $id");
+            pg_query($conn, "DELETE FROM product WHERE productID = $id");
             echo '<script>window.location.href = "product.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();
@@ -43,13 +48,13 @@
                                     <tbody>
                                     <?php while ($row = pg_fetch_row($products)) {?>
                                         <tr>
-                                            <td><?php echo $row['0']; ?></td>
-                                            <td><?php echo $row['1']; ?></td>
-                                            <td><?php echo $row['2']; ?></td>
-                                            <td><?php echo $row['3']; ?></td>
+                                            <td><?php echo $row['productid']; ?></td>
+                                            <td><?php echo $row['qtyinstock']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+                                            <td><?php echo $row['price']; ?></td>
                                             <td>
-                                                <a href="updateProduct.php?edit=<?php echo $row['0']; ?>" class="btn btn-primary active" >Update</a>
-                                                <a href="product.php?del=<?php echo $row['0']; ?>" class="btn btn-danger active">Delete</a>
+                                                <a href="updateProduct.php?edit=<?php echo $row['productid']; ?>" class="btn btn-primary active" >Update</a>
+                                                <a href="product.php?del=<?php echo $row['productid']; ?>" class="btn btn-danger active">Delete</a>
                                             </td>
                                         </tr>
                                     <?php }?>

@@ -8,9 +8,9 @@
 
 		if ($record) {
 			$product = pg_fetch_row($record);
-			$name = $product['Name'];
-			$quantity = $product['QtyInStock'];
-            $price = $product['Price'];
+			$name = $product['name'];
+			$quantity = $product['qtyinstock'];
+            $price = $product['price'];
 		}
 	}
 ?>
@@ -21,7 +21,7 @@
         $updatedQuantity = $_POST['qtyInStock'];
         $updatedPrice = $_POST['price'];
     
-        pg_query($conn, "UPDATE product SET Name='$updatedName', QtyInStock='$updatedQuantity', Price='$updatedPrice' WHERE ProductID=$id");
+        pg_query($conn, "UPDATE product SET name='$updatedName', qtyinstock='$updatedQuantity', price='$updatedPrice' WHERE productID=$id");
         // $_SESSION['message'] = "Address updated!"; 
         echo '<script>window.location.href = "product.php";</script>';
         exit();
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Quantity in stock</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quanity" name="qtyInStock" value="<?php echo $quantity; ?>">
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quanity" name="qtyinstock" value="<?php echo $quantity; ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Price</label>

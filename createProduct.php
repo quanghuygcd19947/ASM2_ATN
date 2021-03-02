@@ -12,7 +12,7 @@
 		$quantity = $_POST['qtyInStock'];
 		$price = $_POST['price'];
         try {
-            pg_query($conn, "INSERT INTO product (ProductID, Name, QtyInStock, Price) VALUES (1, '$name', '$quantity', '$price')"); 
+            pg_query($conn, "INSERT INTO product (productid, name, qtyinstock, price) VALUES ( '$name', '$quantity', '$price')"); 
 		    echo '<script>window.location.href = "product.php";</script>';
             exit();
         } catch (Exception $e) {
