@@ -48,7 +48,7 @@
                                             <td><?php echo $row['2']; ?></td>
                                             <td><?php echo $row['3']; ?></td>
                                             <td>
-                                                <a href="editInventory.php?edit=<?php echo $row['0']; ?>" class="btn btn-primary active" >update</a>
+                                                <a href="editinventory.php?edit=<?php echo $row['0']; ?>" class="btn btn-primary active" >update</a>
                                                 <a href="Inventory.php?del=<?php echo $row['0']; ?>" class="btn btn-danger active">Delete</a>
                                             </td>
                                         </tr>
