@@ -11,7 +11,7 @@
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         try {
-            pg_query($conn, "DELETE FROM product WHERE productID = $id");
+            pg_query($conn, "DELETE FROM product WHERE productid = $id");
             echo '<script>window.location.href = "product.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();

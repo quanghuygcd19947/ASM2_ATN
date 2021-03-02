@@ -23,7 +23,7 @@
         pg_query($conn, "UPDATE inventory SET OfficeID='$updatedOffice', Qty='$updatedQuantity2', ProductID='$updatedProduct = $_POST['ProductID'];
         ' WHERE InventoryID=$id");
         // $_SESSION['message'] = "Address updated!"; 
-        echo '<script>window.location.href = "inventory.php";</script>';
+        echo '<script>window.location.href = "Inventory.php";</script>';
         exit();
     }
 ?>
