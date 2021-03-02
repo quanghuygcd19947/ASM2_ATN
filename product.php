@@ -48,8 +48,8 @@
                                             <td><?php echo $row['2']; ?></td>
                                             <td><?php echo $row['3']; ?></td>
                                             <td>
-                                                <a href="updateProduct.php?edit=<?php echo $row['ProductID']; ?>" class="btn btn-primary active" >Update</a>
-                                                <a href="product.php?del=<?php echo $row['ProductID']; ?>" class="btn btn-danger active">Delete</a>
+                                                <a href="updateProduct.php?edit=<?php echo $row['0']; ?>" class="btn btn-primary active" >Update</a>
+                                                <a href="product.php?del=<?php echo $row['0']; ?>" class="btn btn-danger active">Delete</a>
                                             </td>
                                         </tr>
                                     <?php }?>
