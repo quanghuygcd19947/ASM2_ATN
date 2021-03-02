@@ -6,11 +6,11 @@
 	$quantity = "";
 
 	if (isset($_POST['save'])) {
-		$order = $_POST['orderid'];
+		$product = $_POST['productid'];
 		$bill = $_POST['billid'];
         $quantity = $_POST['qty'];
         try {
-            $query = "INSERT INTO orderproduct (orderid, billid, qty) VALUES ('$order', '$bill', '$quantity')";
+            $query = "INSERT INTO orderproduct (productid, billid, qty) VALUES ('$product', '$bill', '$quantity')";
             $orderproduct = pg_query($conn, $query);
             if(!$orderproduct) {
                 echo 'Something went wrong, please try again';
