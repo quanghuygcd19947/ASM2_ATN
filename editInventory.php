@@ -4,7 +4,7 @@
 <?php
     if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
-		$record = pg_query($conn, "SELECT * FROM inventory WHERE Inventory=$id");
+		$record = pg_query($conn, "SELECT * FROM inventory WHERE inventoryid=$id");
 
 		if ($record) {
 			$inventory = pg_fetch_row($record);
