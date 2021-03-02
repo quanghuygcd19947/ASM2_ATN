@@ -41,18 +41,18 @@
                                     </thead>
                                     
                                     <tbody>
-                                    <?php while ($row = pg_fetch_row($products)) { ?>
+                                    <?php while ($row = pg_fetch_row($products)) { echo "$row[0] $row[1] $row[2] $row[3]\n";?>
                                         <tr>
-                                            <td><?php echo $row['ProductID']; ?></td>
+                                            <!-- <td><?php echo $row['ProductID']; ?></td>
                                             <td><?php echo $row['Name']; ?></td>
                                             <td><?php echo $row['QtyInStock']; ?></td>
-                                            <td><?php echo $row['Price']; ?></td>
+                                            <td><?php echo $row['Price']; ?></td> -->
                                             <td>
                                                 <a href="updateProduct.php?edit=<?php echo $row['ProductID']; ?>" class="btn btn-primary active" >Update</a>
                                                 <a href="product.php?del=<?php echo $row['ProductID']; ?>" class="btn btn-danger active">Delete</a>
                                             </td>
                                         </tr>
-                                    <?php } pg_free_result($products); ?>
+                                    <?php }?>
                                     </tbody>
                                 </table>
                             </div>
