@@ -43,10 +43,10 @@
                                     <tbody>
                                     <?php while ($row = pg_fetch_row($inventorys)) { ?>
                                         <tr>
-                                            <td><?php echo $row['InventoryID']; ?></td>
-                                            <td><?php echo $row['OfficeID']; ?></td>
-                                            <td><?php echo $row['Qty']; ?></td>
-                                            <td><?php echo $row['ProductID']; ?></td>
+                                            <td><?php echo $row['0']; ?></td>
+                                            <td><?php echo $row['1']; ?></td>
+                                            <td><?php echo $row['2']; ?></td>
+                                            <td><?php echo $row['3']; ?></td>
                                             <td>
                                                 <a href="addiventory.php?edit=<?php echo $row['InventoryID']; ?>" class="btn btn-primary active" >update</a>
                                                 <a href="inventory.php?del=<?php echo $row['InventoryID']; ?>" class="btn btn-danger active">Delete</a>
