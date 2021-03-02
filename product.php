@@ -43,10 +43,11 @@
                                     <tbody>
                                     <?php while ($row = pg_fetch_row($products)) {?>
                                         <tr>
-                                            <td><?php echo $row['ProductID']; ?></td>
+                                            <?php echo "$row[0] $row[1] $row[2] $row[3]\n";?>
+                                            <!-- <td><?php echo $row['ProductID']; ?></td>
                                             <td><?php echo $row['Name']; ?></td>
                                             <td><?php echo $row['QtyInStock']; ?></td>
-                                            <td><?php echo $row['Price']; ?></td>
+                                            <td><?php echo $row['Price']; ?></td> -->
                                             <td>
                                                 <a href="updateProduct.php?edit=<?php echo $row['ProductID']; ?>" class="btn btn-primary active" >Update</a>
                                                 <a href="product.php?del=<?php echo $row['ProductID']; ?>" class="btn btn-danger active">Delete</a>
