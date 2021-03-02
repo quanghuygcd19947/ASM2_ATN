@@ -6,7 +6,7 @@
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         try {
-            pg_query($conn, "DELETE FROM orderproduct WHERE OrderID = $id");
+            pg_query($conn, "DELETE FROM orderproduct WHERE orderid = $id");
             echo '<script>window.location.href = "order.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();
@@ -42,10 +42,10 @@
                 <tbody>
                 <?php while ($row = pg_fetch_row($orders)) { ?>
                     <tr>
-                        <td><?php echo $row['OrderID']; ?></td>
-                        <td><?php echo $row['ProductID']; ?></td>
-                        <td><?php echo $row['BillID']; ?></td>
-                        <td><?php echo $row['Qty']; ?></td>
+                        <td><?php echo $row['0']; ?></td>
+                        <td><?php echo $row['1']; ?></td>
+                        <td><?php echo $row['2']; ?></td>
+                        <td><?php echo $row['3']; ?></td>
                         <td>
 
                             <a href="order.php?del=<?php echo $row['OrderID']; ?>" class="btn btn-danger active">Delete</a>

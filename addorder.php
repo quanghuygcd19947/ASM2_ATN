@@ -6,11 +6,11 @@
 	$quantity = "";
 
 	if (isset($_POST['save'])) {
-		$order = $_POST['OrderID'];
-		$bill = $_POST['BillID'];
-        $quantity = $_POST['Qty'];
+		$order = $_POST['orderid'];
+		$bill = $_POST['billid'];
+        $quantity = $_POST['qty'];
         try {
-            $query = "INSERT INTO orderproduct (OrderID, BillID, Qty) VALUES ('$order', '$bill', '$quantity')";
+            $query = "INSERT INTO orderproduct (orderid, billid, qty) VALUES ('$order', '$bill', '$quantity')";
             $orderproduct = pg_query($conn, $query);
             if(!$orderproduct) {
                 echo 'Something went wrong, please try again';
@@ -41,13 +41,13 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">ProductID</label>
                             <br>
-                            <select name='ProductID'>
+                            <select name='productid'>
                             <option >Select Product</option>
                             <?php
                                 $sqlie = "select * from product";
                                 $results = pg_query($conn,$sqlie);
                                 while ($rows = pg_fetch_row($results)){
-                                    echo "<option value=".$rows['ProductID']." >".$rows['Name']."</option>";
+                                    echo "<option value=".$rows['0']." >".$rows['2']."</option>";
                                 }
                             ?>
                             </select>
@@ -55,13 +55,13 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">BillID</label>
                             <br>
-                            <select name='BillID'>
+                            <select name='billid'>
                             <option >Select Bill</option>
                             <?php
                                 $sqlie = "select * from bill";
                                 $results = pg_query($conn,$sqlie);
                                 while ($rows = pg_fetch_row($results)){
-                                    echo "<option value=".$rows['BilID']." >".$rows['Date']."</option>";
+                                    echo "<option value=".$rows['0']." >".$rows['1']."</option>";
                                 }
                             ?>
                             </select>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Quantity </label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quantity" name="Qty">
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quantity" name="qty">
                         </div>
                         <button type="submit" class="btn btn-primary" name="save">Submit</button>
                     </form>

@@ -6,7 +6,7 @@
     if (isset($_GET['del'])) {
         $id = $_GET['del'];
         try {
-            pg_query($conn, "DELETE FROM inventory WHERE InventoryID = $id");
+            pg_query($conn, "DELETE FROM inventory WHERE inventoryid = $id");
             echo '<script>window.location.href = "Inventory.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();
@@ -48,8 +48,8 @@
                                             <td><?php echo $row['2']; ?></td>
                                             <td><?php echo $row['3']; ?></td>
                                             <td>
-                                                <a href="editInventory.php?edit=<?php echo $row['InventoryID']; ?>" class="btn btn-primary active" >update</a>
-                                                <a href="Inventory.php?del=<?php echo $row['InventoryID']; ?>" class="btn btn-danger active">Delete</a>
+                                                <a href="editInventory.php?edit=<?php echo $row['0']; ?>" class="btn btn-primary active" >update</a>
+                                                <a href="Inventory.php?del=<?php echo $row['0']; ?>" class="btn btn-danger active">Delete</a>
                                             </td>
                                         </tr>
                                     <?php } ?>

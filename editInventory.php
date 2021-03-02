@@ -8,20 +8,20 @@
 
 		if ($record) {
 			$inventory = pg_fetch_row($record);
-			$office = $product['OfficeID'];
-			$quantity = $product['Qty'];
-            $product = $product['ProductID'];
+			$office = $product['1'];
+			$quantity = $product['2'];
+            $product = $product['3'];
 		}
 	}
 ?>
 <?php 
     if (isset($_POST['update'])) {
-        $updatedOffice = $_POST['OfficeID'];
-        $updatedQuantity2 = $_POST['Qty'];
-        $updatedProduct = $_POST['ProductID'];
+        $updatedOffice = $_POST['officeid'];
+        $updatedQuantity2 = $_POST['qty'];
+        $updatedProduct = $_POST['productid'];
     
-        pg_query($conn, "UPDATE inventory SET OfficeID='$updatedOffice', Qty='$updatedQuantity2', ProductID='$updatedProduct = $_POST['ProductID'];
-        ' WHERE InventoryID=$id");
+        pg_query($conn, "UPDATE inventory SET officeid='$updatedOffice', qty='$updatedQuantity2', productid='$updatedProduct = $_POST['productid'];
+        ' WHERE inventoryid=$id");
         // $_SESSION['message'] = "Address updated!"; 
         echo '<script>window.location.href = "Inventory.php";</script>';
         exit();
@@ -43,13 +43,13 @@
                             <form method="post" action="">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Office</label>
-                                    <select name='OfficeID'>
+                                    <select name='officeid'>
                                     <option >Select Office</option>
                                     <?php
                                         $sqlie = "select * from office";
                                         $results = pg_query($conn,$sqlie);
                                         while ($rows = pg_fetch_row($results)){
-                                            echo "<option value=".$rows['OfficeID']." >".$rows['City']."</option>";
+                                            echo "<option value=".$rows['0']." >".$rows['1']."</option>";
                                         }
                                     ?>
                                     </select>
@@ -58,19 +58,19 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">ProductID</label>
                                     <br>
-                                    <select name='ProductID'>
+                                    <select name='productid'>
                                     <option>Select Product</option>
                                     <?php
                                     $sqli = "select * from product";
                                     $result = pg_query($conn,$sqli);
                                     while ($row = pg_fetch_row($result)){
-                                        echo "<option value=".$row['ProductID']." >".$row['Name']."</option>";
+                                        echo "<option value=".$row['0']." >".$row['2']."</option>";
                                     }
                                     ?>
                                     </select>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Quantity</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quanity" name="Qty" value="<?php echo $quantity; ?>">
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter quanity" name="qty" value="<?php echo $quantity; ?>">
                                 </div>
 
                                 </div>
