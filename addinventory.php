@@ -18,7 +18,7 @@
             echo '<script>window.location.href = "inventory.php";</script>';
             exit();
         } catch (Exception $e) {
-            echo 'Message: ' .$e->getMessage();
+            // echo 'Message: ' .$e->getMessage();
         }
 		
 	}
