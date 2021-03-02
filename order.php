@@ -48,7 +48,7 @@
                         <td><?php echo $row['3']; ?></td>
                         <td>
 
-                            <a href="order.php?del=<?php echo $row['OrderID']; ?>" class="btn btn-danger active">Delete</a>
+                            <a href="order.php?del=<?php echo $row['0']; ?>" class="btn btn-danger active">Delete</a>
                         </td>
                     </tr>
                 <?php } ?>

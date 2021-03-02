@@ -15,6 +15,19 @@
 	}
 ?>
 
+<?php 
+    if (isset($_POST['update'])) {
+        $updatedOffice = $_POST['officeid'];
+        $updatedQuantity2 = $_POST['qty'];
+        $updatedProduct = $_POST['productid'];
+        
+        pg_query($conn, "UPDATE inventory SET officeid='$updatedOffice', qty='$updatedQuantity2', productid='$updatedProduct = $_POST['productid'];
+        ' WHERE inventoryid=$id");
+        // $_SESSION['message'] = "Address updated!"; 
+        echo '<script>window.location.href = "Inventory.php";</script>';
+        exit();
+    }
+?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -32,6 +45,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Office</label>
                                     <select name='officeid'>
+                                    <br>
                                     <option >Select Office</option>
                                     <?php
                                         $sqlie = "select * from office";
