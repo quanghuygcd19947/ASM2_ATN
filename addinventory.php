@@ -15,7 +15,7 @@
             if(!$inventory) {
                 echo 'Something went wrong, please try again';
             }
-            echo '<script>window.location.href = "inventory.php";</script>';
+            echo '<script>window.location.href = "Inventory.php";</script>';
             exit();
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();

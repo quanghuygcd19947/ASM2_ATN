@@ -7,7 +7,7 @@
         $id = $_GET['del'];
         try {
             pg_query($conn, "DELETE FROM inventory WHERE InventoryID = $id");
-            echo '<script>window.location.href = "inventory.php";</script>';
+            echo '<script>window.location.href = "Inventory.php";</script>';
         } catch (Exception $e) {
             echo 'Message: ' .$e->getMessage();
         }
@@ -24,7 +24,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <a href="addInventory.php" class="btn btn-success active" role="button" aria-pressed="true">Add Inventory</a>
+                            <a href="addinventory.php" class="btn btn-success active" role="button" aria-pressed="true">Add Inventory</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -48,8 +48,8 @@
                                             <td><?php echo $row['2']; ?></td>
                                             <td><?php echo $row['3']; ?></td>
                                             <td>
-                                                <a href="addiventory.php?edit=<?php echo $row['InventoryID']; ?>" class="btn btn-primary active" >update</a>
-                                                <a href="inventory.php?del=<?php echo $row['InventoryID']; ?>" class="btn btn-danger active">Delete</a>
+                                                <a href="editInventory.php?edit=<?php echo $row['InventoryID']; ?>" class="btn btn-primary active" >update</a>
+                                                <a href="Inventory.php?del=<?php echo $row['InventoryID']; ?>" class="btn btn-danger active">Delete</a>
                                             </td>
                                         </tr>
                                     <?php } ?>
